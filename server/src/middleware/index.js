@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const Joi = require('joi');
 
 const middleware = {
   auth: (req, res, next) => {

@@ -1,6 +1,5 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
-const Joi = require('joi');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const { signupValidation, signinValidation } = require('../utils/validations');
