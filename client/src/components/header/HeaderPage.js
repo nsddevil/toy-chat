@@ -10,6 +10,7 @@ function HeaderPage() {
   const onLogout = () => {
     dispatch(logout());
   };
+
   return <Header user={user} onLogout={onLogout} />;
 }
 

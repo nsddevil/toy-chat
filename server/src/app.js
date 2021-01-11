@@ -4,13 +4,17 @@ const cookieParser = require('cookie-parser');
 const connectDB = require('./models');
 const routes = require('./routes');
 const morgan = require('morgan');
+const cors = require('cors');
 const passport = require('passport');
 const passportConfig = require('./passport');
-
+const socketConfig = require('./socketConfig');
 const { PORT, COOKIE_SECRET } = process.env;
 
 connectDB();
 const app = express();
+app.use(cors());
+const server = require('http').createServer(app);
+socketConfig(server);
 
 app.use(morgan('dev'));
 app.use(cookieParser(COOKIE_SECRET));
@@ -34,4 +38,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => console.log('server start Port', PORT));
+server.listen(PORT, () => console.log('server start Port', PORT));

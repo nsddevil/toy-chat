@@ -10,6 +10,11 @@ function Header({ user, onLogout }) {
             Logo
           </Link>
         </div>
+        <div>
+          <Link to="/chat" className="font-bold uppercase text-white">
+            Chat
+          </Link>
+        </div>
         <div className="text-white font-bold uppercase">
           {user ? (
             <>

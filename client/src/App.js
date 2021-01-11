@@ -5,6 +5,8 @@ import Landing from './components/landing/Landing';
 import SignupPage from './components/auth/SignupPage';
 import SigninPage from './components/auth/SigninPage';
 import HeaderPage from './components/header/HeaderPage';
+import RoomPage from './components/chat/RoomPage';
+import ChatPage from './components/chat/ChatPage';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Switch>
           <Route path="/signin" component={WithAuth(SigninPage, false)} />
           <Route path="/signup" component={WithAuth(SignupPage, false)} />
+          <Route exact path="/chat" component={WithAuth(RoomPage, true)} />
+          <Route path="/chat/:roomId" component={WithAuth(ChatPage, true)} />
           <Route exact path="/" component={Landing} />
           <Redirect to="/" />
         </Switch>
